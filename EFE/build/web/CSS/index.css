@@ -1,0 +1,691 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 31-may-2021, 16:44:02
+    Author     : bailarina77
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+/*Trabajamos con la raiz del documento brou xd*/
+:root{
+
+    --purple:#ffffff;
+    --blue:#2DA5EB;
+    --rose:#71cbff;
+    --green:#ffffff;
+    --black1:#ffffff;
+    --black2:#ffffff;
+    /*--shadow: 0 8px 8px;
+    --color_shadow:#e0dbdb;*/
+
+}
+
+
+*{
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+
+body{
+
+    font-family: 'Roboto', sans-serif;
+
+}
+
+
+/*empezamos con el contenedor el cual servira para delimitar el espacio*/
+
+.container{
+
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 100px 0;
+    height: auto;
+
+}
+
+/*Este contenedor fue para poder jugar con las medidas y quedara mas estetico*/
+.container--modifier{
+
+    width: 60%;
+}
+
+/*Empezamos con la magia en el header xd*/
+
+.hero{
+
+    width: 100%;
+    min-height: 100vh;
+    background-color:deepskyblue;
+}
+ /*Es la linea chiquita xd*/
+.nav_hero{
+
+    color: white;
+    height: 70px;
+    border-bottom: 1px solid rgb(255, 255, 255);
+}
+/*Hacemos las modificaciones para que quede bien el titulo del encabezado*/
+.nav_container{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: inherit;
+    padding: 0;
+}
+
+/*empezamos con el logo*/
+
+.logo_name{
+
+    font-size: 54px;
+}
+
+.link{
+    display: inline-block;
+    color: inherit;
+    text-decoration: none;
+    font-weight: 300;
+    padding: 10px;
+
+}
+
+/*Le damos estilo a los enlaces de encabezado*/
+.link--active{
+    /*color: var(--blue);*/
+    color: #fcfcfc;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.point{
+    color: var(--rose);
+
+}
+
+.hero_main{
+    height: cal(100vh - 70px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+}
+
+.mainimg{
+    object-fit: cover;
+    width: 48%;
+    max-height: 90vh;
+}
+
+.hero_textos{
+    width: 48%;
+}
+
+.title{
+    font-size: 56px;
+    font-weight: 300;
+    color: white;
+}
+
+.title--active{
+    color: var(--blue);
+    font-weight: 700;
+}
+
+.copy{
+    font-size: 24px;
+    color: var(--green);
+    text-shadow: var(--shadow) var(--color_shadow);
+    margin: 15px 0;
+}
+
+.copy_active{
+    font-weight: 700;
+}
+
+.cta{
+    padding: 20px 30px;
+    display: inline-block;
+    background: linear-gradient(180deg, var(--blue) 0%, var(--rose) 100%);
+    text-decoration: none;
+    color: var(--black2);
+    font-weight: 700;
+    box-shadow: var(--shadow) var(--color_shadow);
+    border-radius: 6px;
+}
+
+/*Services*/
+
+.services{
+    background: white;
+}
+
+.subtitle{
+    font-size: 42px;
+}
+
+.subtitle--modifier{
+    text-align: center;
+    margin-bottom: 16px;    
+}
+
+.copy_section{
+    color: var(--black2);
+    font-size: 22px;
+    line-height: 32px;
+    margin-bottom: 16px;
+}
+
+.copy_section/*--modifier*/{
+    text-align: left;
+    margin-bottom: 32px;
+    margin-top: -5px;
+    color: rgb(0, 0, 0);
+}
+
+/*Agregamos estilos a las cards*/
+
+.container-cards{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.card{
+    width: 30%;
+    padding: 30px 0;
+    overflow: hidden;
+    background: linear-gradient(180deg, var(--blue) 0%, var(--rose) 100%);
+    border-radius: 10px;
+    position: relative;
+    text-align: center;
+    margin-bottom: 60px;
+    box-shadow: 0 0 6px var(--color_shadow);
+}
+
+.card_img{
+    text-align: left;
+    width: 95%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px 0 0 10px;
+}
+
+.card_text{
+    text-align: left;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.card_list{
+    color: var(--purple);
+    font-weight: 700;
+    margin: 25px 0 12px 0;
+    font-size: 18px;
+}
+
+.card_title{
+    font-size: 40px;
+    color: white;
+    margin-bottom: 8px;
+}
+.card_copy{
+    color: #ffffff;
+    margin-bottom: 16px;
+}
+
+.card_button{
+    display: block;
+    background: linear-gradient(180deg, var(--blue) 0%, var(--rose) 100%);
+    border-radius: 6px;
+    text-decoration: none;
+    width: 90%;
+    color: var(--black1);
+    font-weight: 700;
+    text-align: center;
+    padding: 12px 0;
+}
+
+
+.projects_container{
+    margin-top: -50px;
+    margin-left: 350px;
+    margin-right: 350px;
+    
+}
+
+.card_date{
+    color: var(--purple);
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.container-bg{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+.background{
+    width: 68%;
+    height: 290px;
+    border-radius: 10px;
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.background_img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+}
+
+.background_text{
+    position: absolute;
+    width: 100%;
+    bottom: 30px;
+    left: 15px;
+    color: white;
+}
+
+.background_title{
+    font-size: 24px;
+    margin-bottom: 4px;
+}
+
+
+
+/*Testimonios*/
+
+.testimony{
+    background: white;
+    margin-top: -100px;
+}
+
+
+.testimony-container{
+    margin: 10px auto;
+    width: 33.333333333333333333333%;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    float:right;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+}
+
+
+
+.testimony_card{
+    width:90%;
+    height: 500px;
+    background: linear-gradient(180deg, #ecad36 0%, #7257FA 100%);
+    border-radius: 10px;
+    position:relative;
+    margin-bottom: 30px;
+}
+
+.testimony_img{
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.testimony_copy{
+    position: absolute;
+    bottom: 20px;
+    left: 5%;
+    width: 90%;
+    background: linear-gradient(180deg, #38A0EB 0%, #3DABFA 100%);
+    color: white;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: var(--shadow) var(--color_shadow);
+    padding: 15px 8px;
+    display: flex;
+    align-items: center;
+}
+
+.testimony_copy--modifier{
+    background: none;
+    box-shadow: none;
+}
+
+.testimony_logo{
+    font-size: 40px;
+    margin-right: 15px;
+    display: inline-block;
+}
+
+.testimony_name{
+    font-size: 24px;
+    line-height: 28px;
+}
+
+
+.testimony_position{
+    color: var(--black2);
+}
+
+.testimony_text{
+    padding: 40px 0;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.microsoft_logo{
+    margin-bottom: 20px;
+}
+
+.testimony_history{
+    font-size: 21px;
+    font-weight: 300;
+}
+
+
+
+.testimony_info{
+    width: 70%;
+
+}
+
+.logo--picture{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    object-position: center top;
+}
+
+/*Check*/
+
+
+.email_container {
+    margin-top: -100px;
+    margin-left: 350px;
+    margin-right: 350px;
+}
+
+.check{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.check_item{
+    width: 30%;
+    padding-right: 10px;
+    display: flex;
+    border-right: 2px solid var(--black2);
+}
+
+.bx-check{
+    background: linear-gradient(180deg, #4c8fe2 0%, #2eb2da 100%);
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    margin-right: 70px;
+    color: white;
+    border-radius: 50%;
+    font-size: 40px; 
+}
+
+.check_number{
+    font-weight: 700;
+}
+
+.check_copy{
+    font-weight: 300;
+}
+
+.newsletter{
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 40px;
+    height: auto;
+    font-family: inherit;
+    position: relative;
+    border-radius: 6px;
+}
+
+.newsletter--modifier{
+    margin: 0;
+    width: 80%;
+
+}
+
+.newsletter_input{
+    width: 100%;
+    height: 100%;
+    padding: 22px 10px;
+    outline: none;
+    font-family: inherit;
+    border-radius: 6px;
+    border: 1px solid var(--green);
+}
+
+.newsletter_submit{
+    position: absolute;
+    right: 8px;
+    top: 10%;
+    height: 80%;
+    background: linear-gradient(180deg, #4c8fe2 0%, #2eb2da 100%);
+    color: white;
+    padding: 0 15px;
+    border: none;
+    border-radius: 6px;
+    font-family: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/*Footer*/
+
+.footer{
+    background: #fafafa;
+}
+
+.footer_caption{
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: space-evenly;
+}
+
+.title_footer{
+    font-size: 24px;
+    margin-bottom: 36px;
+}
+
+.footer_copy{
+    width: 100%;
+    color: var(--black2);
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 250px;
+}
+
+.copyright{
+    width: 100%;
+}
+
+.politica_privacidad{
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.politica_privacidad:hover{
+    text-decoration: underline;
+}
+
+.politica_privacidad--margin{
+    margin-right: 10px;
+}
+
+.get-email{
+    width: 50%;
+}
+
+.socialmedia{
+    margin-top: 24px;
+    display: flex;
+    color: var(--black2);
+    text-align: center;
+}   
+
+.socialmedia_icon{
+    font-size: 18px;
+    margin-right: 30px;
+    display: inline-block;
+}
+
+.socialmedia_legend{
+    color: var(--black2);
+    margin-right: 16px;
+}
+
+.contact{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    color: white;
+}
+
+.item_contact{
+    width: 25%;
+    padding: 60px 0;
+    text-align: center;
+    background: linear-gradient(180deg, #4c8fe2 0%, #2eb2da 100%);
+
+}
+
+.item_contact--purple{
+    background: linear-gradient(180deg, #4c8fe2 0%, #2eb2da 100%);
+    color: var(--black1);
+}
+
+.contact_icon{
+    font-size: 14px;
+    color: var(--blue);
+    line-height: 20px;
+    margin-right: 4px;
+}
+
+.contact_icon--modifier{
+    color: var(--black1);
+
+}
+
+.contact_title{
+    font-size: 16px;
+    line-height: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+  
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Montserrat+Alternates|Poppins&display=swap');
+
+
+
+
+
+.letraschidas span{
+    font-size: 60pt;
+    font-weight: bold;
+    position: relative;
+    font-family: "Fredoka One";
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+}
+
+.letraschidas span::before{
+    content: var(--l);
+    position: absolute;
+    transform: scale(1.1);
+    filter: blur(40px);
+}
+
+.letraschidas span::after{
+    content: var(--l);
+    position: absolute;
+    top:80%;
+    left: 0;
+    filter: blur(30px);
+    transform: rotateX(50deg);
+}
+
+.letraschidas span:hover{
+    filter: contrast(250%);
+}
+
+.letraschidas span:nth-child(1){
+    color:#ffffff ;
+}
+
+.letraschidas span:nth-child(2){
+    color:#ffffff ;
+}
+
+.letraschidas span:nth-child(3){
+    color:#ffffff ;
+}
+
+.letraschidas span:nth-child(4){
+    color: #ffffff;
+}
+
+.letraschidas span:nth-child(5){
+    color: #ffffff;
+}
+
+.letraschidas span:nth-child(6){
+    color: #ffffff;
+}
+
+.letraschidas span:nth-child(7){
+    color: #ffffff;
+}
+
+.letraschidas span:nth-child(8){
+    color: #ffffff;
+}
+
+.letraschidas span:nth-child(9){
+    color: #ffffff;
+}
+
+.letraschidas span:nth-child(10){
+    color: #ffffff;
+}
+

@@ -1,0 +1,135 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 31-may-2021, 1:29:03
+    Author     : bailarina77
+*/
+
+	body {
+	margin:0;
+	padding:0;
+	font-family:Arial,Helvetica, sans-serif;
+	letter-spacing:1px;
+	background: url(https://previews.123rf.com/images/ivanmogilevchik/ivanmogilevchik1607/ivanmogilevchik160700159/59664823-sin-patr%C3%B3n-drogas-fondo-plano-con-iconos-de-colores-aislados-con-drogas-p%C3%ADldoras-alcohol-y-los-cigarrillo.jpg);
+		background-size:cover;
+}
+
+.login {
+	position:absolute;
+	top:20%;
+	left:30%;
+	transform:translate (-50%,-50%);
+	-webkit-transform:translate (-50%,-50%);
+	-moz-transform:translate (-50%,-50%);
+	-ms-transform:translate (-50%,-50%);
+	-o-transform:translate (-50%,-50%);
+	width:340px;
+	height:400px;
+	padding:80px 40px;
+	box-sizing:border-box;
+	background:rgba(0, 0, 0, .9);
+	}
+
+.login:before {
+	content:"";
+	position:absolute;
+	top:0;
+	left:0;
+	width:50%;
+	height:100%;
+	background:rgba(255, 255, 255, .1);
+	pointer-events:none;
+}
+
+.cat{
+	width:90px;
+	height:90px;
+	border-radius:50%;
+	 -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+	position:absolute;
+	top:calc(-100px/2);
+	left:calc(50% -50px);
+	
+}
+
+h2 {
+	margin:0;
+	padding:0;
+	color:#D92387;
+	text-align:center;
+	height:40px;
+}
+
+.login p {
+	margin:5px;
+	padding:5px;
+	font-weight:bold;
+	color:#ffffff;
+}
+
+.login input {
+	width:100%;
+	margin-bottom:20px;
+}
+
+.login input[type="text"],
+.login input [type="password"]{
+	border:none;
+	border-bottom:1px solid #fff;
+	background:transparent;
+	outline:none;
+	color:#fff;
+	font-size:16px;
+	height:40px;
+}
+
+.login input[type="submit"]{
+	border: none;
+	outline:none;
+	color:#D95592;
+/* 		rosa */
+	background:#D92387;
+/* 	 fucsia*/
+	cursor:pointer;
+	border-radius:30px;
+	 -webkit-border-radius:;
+    -moz-border-radius:;
+    -ms-border-radius:;
+    -o-border-radius:;
+	height:40px;
+	font-size:16px;
+	transition:all .3s ease;
+	 -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+}
+
+.login input [type="submit"]:hover {
+	background:#00a0af;
+	color:#262626;
+}
+
+.login a {
+	color:#fff;
+	font-size:15px;
+	font-weight:bold;
+	text-decoration:none;
+	transition:all .3s ease;
+	 -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+}
+
+.login a:hover {
+/* 	 rosa*/
+	color:#D95592;
+}
+
