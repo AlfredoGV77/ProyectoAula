@@ -19,8 +19,7 @@
         <% 
      
        String usuario=(String)session.getAttribute("Usuario");
-    
-        
+      
         %>
         <h2>Bienvenido: <%=usuario%></h2>    
         

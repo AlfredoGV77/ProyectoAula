@@ -41,7 +41,7 @@ public class VerificarUsuario extends HttpServlet {
 
             String user,pass;
             user=request.getParameter("usuario2");
-            pass=request.getParameter("contraseña2");
+            pass=request.getParameter("password22");
             
             System.out.println("hola "+user);
             System.out.println("hola "+pass);
@@ -54,6 +54,7 @@ public class VerificarUsuario extends HttpServlet {
             if(estatus==1){                
                 HttpSession session = request.getSession(true);
                 session.setAttribute("Usuario", user);
+                
                 
                 request.getRequestDispatcher("JSP/InicioUsuario.jsp").forward(request, response);
             }

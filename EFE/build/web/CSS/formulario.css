@@ -389,7 +389,7 @@ select {
   }
   /* Custom Select */
   .select {
-    margin-top: 18px;
+    margin-top:-5px;
     position: relative;
     display: flex;
     font-size: 8pt;

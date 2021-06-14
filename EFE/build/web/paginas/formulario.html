@@ -41,7 +41,7 @@
             </div>
 
             <div class="contenedor__login-register">
-                <form  id="formulario1" class="formulario__login" action="../VerificarUsuario">
+                <form  id="formulario1" class="formulario__login" action="../VerificarUsdfgsuario">
                     <h2>Iniciar Sesion</h2>
                     <input type="text" name="usuario2" id="usuario2" placeholder="Usuario">
                     <input type="password" name="contraseña2" id="contraseña2" placeholder="Contraseña">
@@ -126,14 +126,30 @@
                     </div>
                     
                     <!-- Grupo: Sexo -->
-                    <div class="formulario__grupo" id="grupo__sexo">
-                        <label for="sexo" class="formulario__label">Sexo(Masculino, Femenino, Otro)</label>
-                        <div class="formulario__grupo-input">
-                            <input type="text" class="formulario__input" name="sexo" id="sexo" placeholder="Sexo">
-                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                        </div>
-                        <p class="formulario__input-error">Ingresa uno de los sexos marcados.</p>
+                    <div class="formulario__grupo" id="grupo__sexo">     
+                        <label for="sexo" class="formulario__label">Sexo</label>
+                            <div class="select">
+                              <select name="slct" id="slct">     
+                                <option value="1">Femenino</option>
+                                <option value="2">Masculino</option>
+                                <option value="3">No gracias!</option>
+                              </select>
+                            </div>
                     </div>
+                    
+                    <!-- Grupo: Adiccion -->
+                    <div class="formulario__grupo" id="grupo__adiccion">     
+                        <label for="adiccion" class="formulario__label">Adicción</label>
+                            <div class="select">
+                              <select name="slct" id="slct">     
+                                <option value="1">Alcohol</option>
+                                <option value="2">Tabaco</option>
+                                <option value="3">Azucar!</option>
+                              </select>
+                            </div>
+                    </div>
+                    
+                    
 
 
                     <div class="formulario__mensaje" id="formulario__mensaje">

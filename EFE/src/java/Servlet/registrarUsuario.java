@@ -46,9 +46,12 @@ public class registrarUsuario extends HttpServlet {
             
             Integer cuenta=(Integer)sesionusu.getAttribute("cuenta.ss");
             if(cuenta==null){
-                cuenta= new Integer(1);
+                cuenta= new Integer(1);    
             }else{
                 cuenta=new Integer(cuenta.intValue()+1);
+                if(cuenta==1){
+                   response.sendRedirect("JSP/hola.jsp");
+                }
             }
             
             sesionusu.setAttribute("cuenta.ss", cuenta);
@@ -67,7 +70,7 @@ public class registrarUsuario extends HttpServlet {
             }
             
             
-            String nombre, apellidos, usuario, contraseña, correo,sexo;
+            String nombre, apellidos, usuario, contraseña, correo,sexo, sexoF;
             int edad;
             
             nombre=request.getParameter("nombre");
@@ -76,7 +79,9 @@ public class registrarUsuario extends HttpServlet {
             contraseña=request.getParameter("password");
             correo=request.getParameter("correo");
             edad=Integer.parseInt(request.getParameter("edad"));
-            sexo=request.getParameter("sexo");
+            sexo=request.getParameter("slct");
+            
+
             
             Usuario e=new Usuario();
             e.setNombre(nombre);
@@ -85,9 +90,25 @@ public class registrarUsuario extends HttpServlet {
             e.setContraseña(contraseña);
             e.setCorreo(correo);
             e.setEdad(edad);
-            e.setSexo(sexo);
+            
+            if(Integer.parseInt(sexo)==1){
+                sexoF="Femenino";
+                e.setSexo(sexoF);
+            }
+             if(Integer.parseInt(sexo)==2){
+                sexoF="Masculino";  
+                e.setSexo(sexoF);
+            }
+           
+            if(Integer.parseInt(sexo)==3){
+                sexoF="NA";  
+                e.setSexo(sexoF);
+            }
+          
+            
             
             int estatus=AccionesUsuario.registrarUsuario(e);
+            
              if(estatus>0){
                 response.sendRedirect("JSP/mensajeExito.jsp");
             }

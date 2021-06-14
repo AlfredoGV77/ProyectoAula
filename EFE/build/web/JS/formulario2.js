@@ -3,42 +3,51 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-/*-------------------------------------------------------------TODOOO ESTO ES PARA EL EFECTO DE TRANSICION--------------------------------------------------------------------------*/
-
-document.getElementById("btn__iniciar-sesion").addEventListener("click",iniciarSesion);
-document.getElementById("btn__registrarse").addEventListener("click",register);
-
-/*DECLARACION DE VARIABLES*/
-var contenedor_login_register=document.querySelector(".contenedor__login-register");
-var formulario_login= document.querySelector(".formulario__login");
-var formulario_register= document.querySelector(".formulario__register");
-
-var caja_trasera_login= document.querySelector(".caja__trasera-login");
-var caja_trasera_register= document.querySelector(".caja__trasera-register");
 
 
-function iniciarSesion(){
-    formulario_register.style.display="none";
-    contenedor_login_register.style.left="10px";
-    formulario_login.style.display="block";
-    caja_trasera_register.style.opacity="1";
-    caja_trasera_login.style.opacity="0";
+function cambiar_login() {
+  document.querySelector('.cont_forms').className = "cont_forms cont_forms_active_login";  
+document.querySelector('.cont_form_login').style.display = "block";
+document.querySelector('.cont_form_sign_up').style.opacity = "0";               
 
-}
+setTimeout(function(){  document.querySelector('.cont_form_login').style.opacity = "1"; },400);  
+  
+setTimeout(function(){    
+document.querySelector('.cont_form_sign_up').style.display = "none";
+},200);  
+  }
+
+function cambiar_sign_up(at) {
+  document.querySelector('.cont_forms').className = "cont_forms cont_forms_active_sign_up";
+  document.querySelector('.cont_form_sign_up').style.display = "block";
+document.querySelector('.cont_form_login').style.opacity = "0";
+  
+setTimeout(function(){  document.querySelector('.cont_form_sign_up').style.opacity = "1";
+},100);  
+
+setTimeout(function(){   document.querySelector('.cont_form_login').style.display = "none";
+},400);  
 
 
-function register(){
-    formulario_register.style.display="block";
-    contenedor_login_register.style.left="410px";
-    formulario_login.style.display="none";
-    caja_trasera_register.style.opacity="0";
-    caja_trasera_login.style.opacity="1";
-
-}
+}    
 
 
 
+function ocultar_login_sign_up() {
 
+document.querySelector('.cont_forms').className = "cont_forms";  
+document.querySelector('.cont_form_sign_up').style.opacity = "0";               
+document.querySelector('.cont_form_login').style.opacity = "0"; 
+
+setTimeout(function(){
+document.querySelector('.cont_form_sign_up').style.display = "none";
+document.querySelector('.cont_form_login').style.display = "none";
+},500);  
+  
+  }
+
+
+/*VALIDACION*/
 const formulario = document.getElementById('formulario2');
 const inputs = document.querySelectorAll('#formulario2 input');
 
@@ -159,4 +168,4 @@ formulario.addEventListener('submit', (e) => {
 
 
 
-/*PAL LOGIN --------------------------------------------------------------------------------------------*/
+
