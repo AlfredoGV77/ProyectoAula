@@ -5,10 +5,15 @@
  */
 package Servlet;
 
+import Control.AccionesAdiccionUsuario;
 import Control.AccionesUsuario;
+import Control.Conexion;
 import Modelo.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -46,17 +51,54 @@ public class VerificarUsuario extends HttpServlet {
             System.out.println("hola "+user);
             System.out.println("hola "+pass);
             
-            
+            int estatus = 0;
+           
             Usuario u= new Usuario();
             u.setUsuario(user);
             u.setContraseña(pass);
-            int estatus= AccionesUsuario.validarUsuario(u);
-            if(estatus==1){                
+             
+            
+            try{
+                Connection con=Conexion.getConnection();
+                String q="select * from musuario where usuario =? and contraseña = ? ";
+                 PreparedStatement ps=con.prepareStatement(q);
+                ps.setString(1,user);
+                ps.setString(2,pass);
+                ResultSet rs = ps.executeQuery();
+                 while(rs.next()){
+                       int privilegio=rs.getInt("rol"); 
+                       estatus = estatus +1 ;
+                       u.setRol(rs.getInt("rol"));
+             }
+            System.out.println("CONSULTA EXITOSA");
+            con.close();
+            
+        }catch(Exception ed){
+            System.out.println("Error al CONSULTAR");
+            System.out.println(ed.getMessage());
+        
+          }
+
+            
+            
+            
+            int estatus2= AccionesUsuario.validarUsuario(u);
+            if(estatus2==1){                
                 HttpSession session = request.getSession(true);
-                session.setAttribute("Usuario", user);
+                session.setAttribute("Usuario",user);
+                System.out.println("holiiiiiis "+ u.getRol());
+                if(u.getRol()==1){
+                    response.sendRedirect("JSP/paginaCigarro.jsp");
+                }
                 
+                if(u.getRol()==2){
+                    response.sendRedirect("JSP/paginaAlcohol.jsp");
+                }
                 
-                request.getRequestDispatcher("JSP/InicioUsuario.jsp").forward(request, response);
+               if(u.getRol()==3){
+                    response.sendRedirect("JSP/paginaAzucar.jsp");
+                }
+ 
             }
             else{
                 response.sendRedirect("JSP/error.jsp");

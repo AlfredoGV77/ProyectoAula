@@ -17,7 +17,15 @@ import java.sql.SQLException;
  */
 public class Usuario {
     private String nombre,apellidos,usuario,contraseña, correo,sexo;
-    private int edad, id;
+    private int edad, id,rol;
+
+    public int getRol() {
+        return rol;
+    }
+
+    public void setRol(int rol) {
+        this.rol = rol;
+    }
 
     public String getUsuario() {
         return usuario;

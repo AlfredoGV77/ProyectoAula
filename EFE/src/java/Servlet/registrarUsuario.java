@@ -6,10 +6,13 @@
 package Servlet;
 
 import Control.AccionesUsuario;
+import Control.Conexion;
 import Modelo.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
 import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.util.Enumeration;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -71,7 +74,7 @@ public class registrarUsuario extends HttpServlet {
             
             
             String nombre, apellidos, usuario, contraseña, correo,sexo, sexoF;
-            int edad;
+            int edad,adiccion;
             
             nombre=request.getParameter("nombre");
             apellidos=request.getParameter("appe");
@@ -80,6 +83,9 @@ public class registrarUsuario extends HttpServlet {
             correo=request.getParameter("correo");
             edad=Integer.parseInt(request.getParameter("edad"));
             sexo=request.getParameter("slct");
+            
+            
+            adiccion=Integer.parseInt(request.getParameter("slct2"));
             
 
             
@@ -90,13 +96,14 @@ public class registrarUsuario extends HttpServlet {
             e.setContraseña(contraseña);
             e.setCorreo(correo);
             e.setEdad(edad);
+            e.setRol(adiccion);
             
             if(Integer.parseInt(sexo)==1){
-                sexoF="Femenino";
-                e.setSexo(sexoF);
+                sexoF="F";
+                e.setSexo(sexoF);          
             }
              if(Integer.parseInt(sexo)==2){
-                sexoF="Masculino";  
+                sexoF="M";  
                 e.setSexo(sexoF);
             }
            
@@ -104,12 +111,33 @@ public class registrarUsuario extends HttpServlet {
                 sexoF="NA";  
                 e.setSexo(sexoF);
             }
-          
             
             
             int estatus=AccionesUsuario.registrarUsuario(e);
             
              if(estatus>0){
+                 
+                        try{
+                                Connection con= Conexion.getConnection();
+
+
+                                String q=" INSERT INTO MAdiccion_Usuario (id_adiccion,id_usuario)"+
+                                " VALUES(?,(SELECT MAX(id_usuario)  FROM MUsuario))";
+                                PreparedStatement ps=con.prepareStatement(q);
+                                ps.setInt(1,adiccion);
+
+                                int estatus2=ps.executeUpdate();
+                                System.out.println("Registro relacional exitoso");
+                                con.close();
+
+                                }catch(Exception ed){
+                                    System.out.println("Error al relacionar");
+                                    System.out.println(ed.getMessage());
+                        }
+                 
+                 
+                 
+                 
                 response.sendRedirect("JSP/mensajeExito.jsp");
             }
             else{

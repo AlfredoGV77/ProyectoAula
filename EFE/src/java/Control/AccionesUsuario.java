@@ -22,8 +22,8 @@ public class AccionesUsuario {
         int estatus=0;
         try{
             Connection con= Conexion.getConnection();
-            String q="insert into MUsuario(nombre,apellidos,usuario,contraseña,correo,edad,sexo) "
-                    +"values(?,?,?,?,?,?,?)";     
+            String q="insert into MUsuario(nombre,apellidos,usuario,contraseña,correo,edad,sexo,rol) "
+                    +"values(?,?,?,?,?,?,?,?)";     
             PreparedStatement ps=con.prepareStatement(q);
             ps.setString(1,e.getNombre());
             ps.setString(2,e.getApellidos());
@@ -32,16 +32,14 @@ public class AccionesUsuario {
             ps.setString(5,e.getCorreo());
             ps.setInt(6,e.getEdad());
             ps.setString(7,e.getSexo());
+            ps.setInt(8,e.getRol());
         
 
             estatus=ps.executeUpdate();
             System.out.println("Registro exitoso");
             con.close();
             
-            /*OTRA QUERY PARA INSERTAR EN MAdiccion_Usuario
-             String a="insert into MAdiccion_Usuario(id_usuario,id_adiccion,fecha_adiccion) "
-                    +"values(?,?,?,?,?,?,?,?,?)";     
-            */
+           
             
         }catch(Exception ed){
             System.out.println("Error al registrar");
@@ -63,12 +61,11 @@ public class AccionesUsuario {
             ps.setString(2,e.getContraseña());
             ResultSet rs = ps.executeQuery();
              while(rs.next()){
-             
+                   int privilegio=rs.getInt("rol"); 
                    estatus = estatus +1 ;
                    e.setUsuario(rs.getString("usuario"));
                    e.setContraseña(rs.getString("contraseña"));
                    if(estatus == 1){
-                   
                          return 1;
                    
              }else{
